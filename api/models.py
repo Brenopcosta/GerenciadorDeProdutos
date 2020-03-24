@@ -4,7 +4,7 @@ from django.db import models
 class Produto(models.Model):
     nome = models.CharField(max_length=50,null = False , blank = False)
     descricao = models.CharField(max_length=50,null = False , blank = False)
-    preco = models.FloatField(max_value=None, min_value=None)
+    preco = models.FloatField(null=True, blank=True, default=None)
     dataDeCriacao = models.DateField(auto_now_add=True)
     estoque = models.IntegerField(default=0)
 
