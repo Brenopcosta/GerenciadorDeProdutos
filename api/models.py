@@ -22,7 +22,7 @@ class Usuario(models.Model):
     def __str__(self):
         return self.nomeDeUsuario
 
-class Pedidos():
+class Pedidos(models.Model):
     produto = models.ForeignKey(Produto , on_delete = models.CASCADE)
     usuario = models.ForeignKey(Usuario, on_delete = models.CASCADE)
     quantidadeDeItens = models.IntegerField(default=0)
