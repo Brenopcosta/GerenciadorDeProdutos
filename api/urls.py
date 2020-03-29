@@ -11,11 +11,16 @@ from api.views import loginNoSistema
 from api.views import detalhes_do_pedido
 from api.views import alterar_pedido
 from api.views import pagar_pedido
+from api.views import logout
+from api.views import criar_cadastro
+
 
 app_name = 'api'
 
 urlpatterns = [
     path('login/', loginNoSistema, name='login'),
+    path('criarCadastro/', criar_cadastro, name='cadastrar'),
+    path('logout/', logout, name='logout'),
     path('produtos/', retorna_todos_os_produtos, name='todos'),
     path('criaProduto/', cria_novo_produto, name='criaNovoProduto'),
     path('detalhesDoProduto/<int:idDoProduto>', listar_detalhes_do_produto, name='detalhesDoProduto'),

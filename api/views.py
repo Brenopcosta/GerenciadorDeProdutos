@@ -35,6 +35,25 @@ def incrementaEstoqueDoProduto(idDoProduto, quantidadeASerIncrementada):
     produto.estoque = produto.estoque+quantidadeASerIncrementada
     produto.save()
 
+
+@api_view(['POST',  ])
+def criar_cadastro(request):
+    usuario = Usuario()
+    usuario.nomeDeUsuario = request.data['nomeUsuario']
+    usuario.senha = request.data['senha']
+    usuario.email = request.data['email']
+    usuario.primeiroNome = request.data['primeiroNome']
+    usuario.ultimoNome = request.data['ultimoNome']
+    usuario.endereco = request.data['endereco']
+    usuario.save()
+    return Response(status=status.HTTP_200_OK)
+
+
+@api_view(['POST',  ])
+def logout(request):
+    del token_userID[request.headers['token']]
+    return Response(status=status.HTTP_200_OK)
+
 @api_view(['POST',  ])
 def loginNoSistema(request):
     try:
